@@ -18,6 +18,13 @@ npm install
 node app.js
 ```
 
+## use
+Specify your vector tile based map at route/plow.js. (await page.goto)  
+That map may need to be without control fuctions.
+
+Then, access to your tile from /plow/raster/{z}/{x}/{y}.png  
+example: http://localhost:3000/plow/raster/10/881/412.png  
+
 ## References
 https://docs.microsoft.com/en-us/graph/tutorials/node?tutorial-step=3  
 https://github.com/hfu/plow  
