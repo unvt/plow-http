@@ -7,8 +7,6 @@ const fs = require('fs')
 const cors = require('cors')
 const MAXZ = 15
 
-// config constants
-const defaultZ = config.get('defaultZ')
 
 // global variables
 let busy = false

@@ -18,17 +18,12 @@ const DailyRotateFile = require('winston-daily-rotate-file')
 // config constants
 const morganFormat = config.get('morganFormat')
 const htdocsPath = config.get('htdocsPath')
-//const privkeyPath = config.get('privkeyPath')
-//const fullchainPath = config.get('fullchainPath')
+//const privkeyPath = config.get('privkeyPath') //for https
+//const fullchainPath = config.get('fullchainPath') //for https
 const port = config.get('port')
-const defaultZ = config.get('defaultZ')
-//const mbtilesDir = config.get('mbtilesDir')
-//const fontsDir = config.get('fontsDir')
 const logDirPath = config.get('logDirPath')
 
 // global variables
-let mbtilesPool = {}
-let tz = config.get('tz')
 let busy = false
 
 // logger configuration
