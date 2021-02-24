@@ -6,7 +6,7 @@ I wanted to have a raster tile rendering server as a part of the UN Vector Tile 
 
 ## install
 ```console
-git clone git@github.com:ubukawa/plow-http
+git clone https://github.com/unvt/plow-http
 cd plow-http
 npm install
 ```
