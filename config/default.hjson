@@ -1,0 +1,15 @@
+{
+  morganFormat: tiny
+  htdocsPath: public
+  port: 3000
+  privkeyPath: /key/privkey.pem
+  fullchainPath: /key/fullchain.pem
+  chainPath: /key/chain.pem
+  logDirPath: log
+  tz: {
+    osm-z6: 6
+  }
+  defaultZ: 6
+  mbtilesDir: /mbtiles
+  fontsDir: /fonts
+}
