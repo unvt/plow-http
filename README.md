@@ -42,8 +42,46 @@ Then,
 ```console
 sudo yum install -y atk
 
-```
+```  
 
+Missing libraries are:
+      libatk-1.0.so.0
+      libatk-bridge-2.0.so.0
+      libcups.so.2
+      libxcb.so.1
+      libxkbcommon.so.0
+      libX11.so.6
+      libXcomposite.so.1
+      libXdamage.so.1
+      libXext.so.6
+      libXfixes.so.3
+      libXrandr.so.2
+      libgbm.so.1
+      libgtk-3.so.0
+      libgdk-3.so.0
+      libpango-1.0.so.0
+      libcairo.so.2
+      libatspi.so.0
+      libxshmfence.so.1
+
+(packages)
+atk
+at-spi2-atk
+cups-libs  
+libxcb
+libxkbcommon
+libX11
+libXcomposite
+libXdamage
+libXext
+libXfixes
+libXrandr
+mesa-libgbm
+gtk3
+pango
+cairo
+at-spi2-core
+libxshmfence
 
 ## References
 https://docs.microsoft.com/en-us/graph/tutorials/node?tutorial-step=3  
