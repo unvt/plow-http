@@ -64,10 +64,10 @@ Missing libraries are:
       libatspi.so.0
       libxshmfence.so.1
 
-(packages)
+(missin packages)
 atk
 at-spi2-atk
-cups-libs  
+cups-libs
 libxcb
 libxkbcommon
 libX11
