@@ -26,11 +26,15 @@ const tile2lat = (y, z) => {
 }
 
 const jumpInto = async (page, z, x, y) => {
+  let waitT = 2500 * (MAXZ - z)
+  if (z < MAXZ - 4){
+   waitT = 10000
+  }
   await page.goto(
     `https://hfu.github.io/plow/#${z}/${tile2lat(y + 0.5, z)}/${tile2long(x + 0.5, z)}` //location of the map
   )
   await page.waitForNavigation()
-  await page.waitForTimeout(2500 * (MAXZ - z)) //gray image appears without this
+  await page.waitForTimeout(waitT)  //gray image appears without this
 
 //replaced (from here)
 // see https://playwright.dev/docs/screenshots/?_highlight=screenshot#capture-into-buffer
