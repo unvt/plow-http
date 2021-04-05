@@ -25,6 +25,7 @@ const tile2lat = (y, z) => {
   return 180 / Math.PI * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)))
 }
 
+/*
 const jumpInto = async (page, z, x, y) => {
   let waitT = 2500 * (MAXZ - z)
   if (z < MAXZ - 4){
@@ -36,20 +37,6 @@ const jumpInto = async (page, z, x, y) => {
   await page.waitForNavigation()
   await page.waitForTimeout(waitT)  //gray image appears without this
 
-//replaced (from here)
-// see https://playwright.dev/docs/screenshots/?_highlight=screenshot#capture-into-buffer
-//  const path = `docs/img/${z}/${x}/${y}.png`
-//  await page.screenshot({
-//    path: path,
-//    clip: {
-//      x: 128,
-//      y: 128,
-//      width: 512,
-//      height: 512
-//    }
-//  })
-//console.log(path)
-
 //var buff //if buff is declared here, an error occur....
 buff = await page.screenshot({
     clip: {
@@ -59,22 +46,8 @@ buff = await page.screenshot({
       height: 512
     }
   })
-//console.log(buff.toString('base64')); //need when checking
-
-//replaced (until here)
-
-//neee to be edited
-/*
-  if (z === MAXZ) {
-  } else {
-    await jumpInto(page, z + 1, x * 2 + 0, y * 2 + 0)
-    await jumpInto(page, z + 1, x * 2 + 1, y * 2 + 0)
-    await jumpInto(page, z + 1, x * 2 + 0, y * 2 + 1)
-    await jumpInto(page, z + 1, x * 2 + 1, y * 2 + 1)
-  }
-*/
 }
-
+*/
 
 
 
@@ -99,11 +72,29 @@ if (!req.session.userId) {
     viewport: { width: 768, height: 768 }
   })
 
-
-//  await page.goto(`https://hfu.github.io/plow/#8/32.7528/129.888`)
-//  await page.waitForTimeout(3000)
 //  await jumpInto(page, Z, X, Y)
-  await jumpInto(page, Z, X, Y)
+
+  let waitT = 2500 * (MAXZ - Z)
+  if (Z < MAXZ - 4){
+   waitT = 10000
+  }
+  await page.goto(
+    `https://hfu.github.io/plow/#${Z}/${tile2lat(Y + 0.5, Z)}/${tile2long(X + 0.5, Z)}` //location of the map
+  )
+  await page.waitForNavigation()
+//  await page.waitForTimeout(2500 * (MAXZ - Z)) //gray image appears without this
+  await page.waitForTimeout(waitT)  //gray image appears without this
+
+//var buff //if buff is declared here, an error occur....
+  let buff = await page.screenshot({
+    clip: {
+      x: 128,
+      y: 128,
+      width: 512,
+      height: 512
+    }
+  })
+
   await browser.close()
 
 //      if (buff.body) {
